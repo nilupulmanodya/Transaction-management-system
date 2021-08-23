@@ -87,51 +87,57 @@
     <div class="row" style="margin:auto;" >
 
       
-      <div class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid black;">
+      <button id="btn_id1" onclick="disableButton('btn_id1')" class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid rgb(131, 131, 131); color: black;">
         <img src="images/burger.jpg" style="height: 65%; width:90%; margin: auto; padding: 2px;">
 
         <h8>Burger</h8>
         <p>Rs.2500/=</p>
 
-      </div> <div class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid black;">
+      </button><button id="btn_id2" onclick="disableButton('btn_id2')" class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid rgb(131, 131, 131); color: black;">
         <img src="images/burger.jpg" style="height: 65%; width:90%; margin: auto; padding: 2px;">
 
         <h8>Burger</h8>
         <p>Rs.2500/=</p>
 
-      </div> <div class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid black;">
+      </button><button id="btn_id3" onclick="disableButton('btn_id3')" class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid rgb(131, 131, 131); color: black;">
         <img src="images/burger.jpg" style="height: 65%; width:90%; margin: auto; padding: 2px;">
 
         <h8>Burger</h8>
         <p>Rs.2500/=</p>
 
-      </div> <div class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid black;">
+      </button><button id="btn_id4" onclick="disableButton('btn_id4')" class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid rgb(131, 131, 131); color: black;">
         <img src="images/burger.jpg" style="height: 65%; width:90%; margin: auto; padding: 2px;">
 
         <h8>Burger</h8>
         <p>Rs.2500/=</p>
 
-      </div> <div class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid black;">
+      </button><button id="btn_id5" onclick="disableButton('btn_id5')" class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid rgb(131, 131, 131); color: black;">
         <img src="images/burger.jpg" style="height: 65%; width:90%; margin: auto; padding: 2px;">
 
         <h8>Burger</h8>
         <p>Rs.2500/=</p>
 
-      </div> <div class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid black;">
+      </button><button id="btn_id6" onclick="disableButton('btn_id6')" class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid rgb(131, 131, 131); color: black;">
         <img src="images/burger.jpg" style="height: 65%; width:90%; margin: auto; padding: 2px;">
 
         <h8>Burger</h8>
         <p>Rs.2500/=</p>
 
-      </div>
-
-      <div class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid black;">
+      </button><button id="btn_id7" onclick="disableButton('btn_id7')" class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid rgb(131, 131, 131); color: black;">
         <img src="images/burger.jpg" style="height: 65%; width:90%; margin: auto; padding: 2px;">
 
         <h8>Burger</h8>
         <p>Rs.2500/=</p>
 
-      </div>
+      </button>
+
+      <button id="btn_id8" onclick="disableButton('btn_id8')" class="add-row btn btn-sm btn-outline-secondary" style="width:18%; margin:8px 8px ; height:180px; border:1px solid rgb(131, 131, 131); color: black;">
+        <img src="images/burger.jpg" style="height: 65%; width:90%; margin: auto; padding: 2px;">
+
+        <h8>Burger</h8>
+        <p>Rs.2500/=</p>
+
+      </button>
      
     </div>
   </div>
@@ -153,37 +159,30 @@
             <th scope="col">Item</th>
             <th scope="col">Quentity</th>
             <th scope="col">Price (Rs)</th>
+            <th scope="col">Subtotal(Rs)</th>
             <th scope="col">Remove</th>
           </tr>
         </thead>
+          
+        
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Burger</td>
-            <td>2</td>
-            <td>2500</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Burger</td>
-            <td>2</td>
-            <td>2500</td>
-          </tr><tr>
-            <th scope="row">3</th>
-            <td>Burger</td>
-            <td>2</td>
-            <td>2500</td>
-          </tr><tr>
-            <th scope="row">4</th>
-            <td>Burger</td>
-            <td>2</td>
-            <td>2500</td>
-
-          </tr>
+            <td>1</td>
+            <td>
+                Food
+            </td>
+            <td>
+                <input type="text" class="quantity" placeholder="Quantity" />
+            </td>
+            <td class="price">40</td>
+            <td class="total"></td>
+            <td>Remove</td>
+        </tr>
         </tbody>
       </table>
 
       <button type="submit" class="btn btn-primary">Pay Now</button>
+      <p class="sum">TOTAL</p>
     </form>
   </div>
 </div>
@@ -192,26 +191,71 @@
 
 <script>
   $(document).ready(function(){
-      $(".add-row").click(function(){
+      $(".add-row").on('click ',function(){
           //var name = $("#name").val();
           //var email = $("#email").val();
-          var name = "Foodname";
-          var price = "FoodPrice";
+          var name = "Burger";
+          var price = 2500;
+          var btn_id = 'btn_id1';
           //var markup = "<tr><th>1</th><td><input type='checkbox' name='record'></td><td>" + name + "</td><td>" + price + " </td><td><button type='button' class='btn delete-row btn-outline-danger'>Remove</button></td></tr>";
-          var markup = "<tr><th>1</th><td>" + name + "</td><td><input type='number' size='2' required value='1' name='record'></td><td>" + price + " </td>"+"<td>" +
-        "<button type='button' onclick='productDelete(this);' class='btn delete-row btn-outline-danger'> Remove</button>" +
+          var markup1 = "<tr><th>1</th><td>" + name + "</td><td><input class='quantity' type='number' size='2' required value='1' name='record'></td><td class='price'>" + price + " </td>"+"<td>" +
+        "<button id="+btn_id+" type='button' onclick='productDelete(this);' class='btn delete-row btn-outline-danger'> Remove</button>" +
         "</td>"+"</tr>";
+
+
+
+          var markupas = "<tr><th>1</td><td>"+name+"</td><td><input type='text' class='quantity' placeholder='Quantity' /></td><td class='price'>4</td><td class='total'></td><td>something</td></tr><tr>"
+
+          var markup = "<tr><td>1</td><td>Food</td><td><input type='text' class='quantity' placeholder='Quantity' /></td><td class='price'>40</td><td class='total'></td><td>Remove</td></tr>"
 
 
           $("table tbody").append(markup);
         });
-      });
+
+        $("table input").on('change blur input', function () {
+                var row = $(this).closest('tr'),
+                quantity = row.find('.quantity').val(),
+                price = parseFloat(row.find('.price').text());
+
+            row.find('.total').text(quantity * price);
+
+            var sum = 0;
+            $('.total').each(function () {
+                sum += parseFloat($(this).text()) || 0;
+            });
+
+            $('.sum').text(sum);
+        });
+});
+
+
+    
 
 
      
   function productDelete(ctl) {
-         $(ctl).parents("tr").remove();
+        
+         
+        var btn_id = ctl.id;
+        
+        //alert(btn_id);
+        $(ctl).parents("tr").remove();
+            enableButton(btn_id);
         }
+
+
+
+  function disableButton(btn_id) {
+        var btn = document.getElementById(btn_id);
+        btn.disabled = true;
+        //btn.innerText = 'Posting...'
+    }
+
+    function enableButton(btn_id) {
+        var btn = document.getElementById(btn_id);
+        btn.disabled = false;
+        //btn.innerText = 'Posting...'
+    }
 </script>
 
 
