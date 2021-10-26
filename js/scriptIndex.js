@@ -4,8 +4,9 @@
           var name = btn_data[0]
           var price = btn_data[1]
           var btn_id = this.id;
+          console.log(btn_id);
           
-          var markup = "<tr class='tr22'><th>1</th><td>" + name + "</td><td><input class='quantity' type='number' size='2' required value='1' name='record'></td><td><input class='price' type='hidden' value="+price+">" + price + " </td>"+"<td>" +
+          var markup = "<tr class='tr22'><th>"+btn_id+"</th><td>" + name + "</td><td><input class='quantity' type='number' size='2' required value='1' name='record'></td><td><input class='price' type='hidden' value="+price+">" + price + " </td>"+"<td>" +
         "<button id="+btn_id+" type='button' onclick='productDelete(this);' class='btn delete-row btn-outline-danger'> Remove</button>" +
         "</td>"+"</tr>";
 
@@ -68,6 +69,7 @@ function refreshPage(){
         
          
         var btn_id = ctl.id;
+        console.log(btn_id);
         
         //alert(btn_id);
         $(ctl).parents("tr").remove();
