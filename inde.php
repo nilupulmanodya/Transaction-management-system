@@ -5,6 +5,14 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+
+
 <script src="js/jquery.js"></script>
 <script src="js/scriptIndex.js"></script>
 <title>
@@ -178,6 +186,14 @@
     </div>
   </div>
     
+
+
+
+
+
+
+
+  
   
   <div class="column right" style="background-color:#bbb;">
     <h3 style="text-align: center;">Cart</h3>
@@ -213,8 +229,23 @@
           <th class="sum">0.00</th>
         </tr>
         <tr>
-          <td><button  class="btn btn-primary">Pay Now</button></td>
-          <td><button type="button"  onclick='refreshPage()' id="clearAll" class="btn btn-primary">Refresh</button></td>
+          <td><button id="check_bl" type = "button" class="btn btn-primary">Pay Now</button>
+        
+        
+          <button id="myModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#paymentModal">
+  Pay Now
+</button>  
+        
+        </td>
+
+
+
+          <td>
+          <button id="myModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#refreshModel">
+  Refresh
+</button>  
+          
+          
         </tr>
        </table>
     </form>
@@ -225,6 +256,88 @@
 <!--JS libraries-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <!--Footer-->
+
+
+
+
+
+<!-- Modal for confirm refresh -->
+<div class="modal fade" id="refreshModel" tabindex="-1" role="dialog" aria-labelledby="refreshModel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="refreshModel">Are you sure to refresh?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        After refreshing all the data of the cart will be removed... 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" onclick='refreshPage()' class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal for confirm payment-->
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paymentModal">Are you sure to generate bill ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table> 
+                
+                  <tr>
+                    <th>
+                      price
+                    </th>
+                    <th>
+                      price
+                    </th>
+                    <th>
+                      price
+                    </th>
+                  <tr>
+                  <tr>
+                    <td>
+                      asas
+                    </td>
+                    <td>
+                      asas
+                    </td>
+                    <td>
+                      asas
+                    </td>
+                  </tr>
+              
+
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" onclick='refreshPage()' class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 <div style="background-color: blue;"><h3>All Right reseirved</h3></div>
 
  

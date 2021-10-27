@@ -6,7 +6,7 @@
           var btn_id = this.id;
           console.log(btn_id);
           
-          var markup = "<tr class='tr22'><th>"+btn_id+"</th><td>" + name + "</td><td><input class='quantity' type='number' size='2' required value='1' name='record'></td><td><input class='price' type='hidden' value="+price+">" + price + " </td>"+"<td>" +
+          var markup = "<tr class='tr22'><th>"+btn_id+"</th><td><input class='fd_name' type='hidden' value='"+ name +"'>" + name + "</td><td><input class='quantity' type='number' size='2' required value='1' name='record'></td><td><input class='price' type='hidden' value="+price+">" + price + " </td>"+"<td>" +
         "<button id="+btn_id+" type='button' onclick='productDelete(this);' class='btn delete-row btn-outline-danger'> Remove</button>" +
         "</td>"+"</tr>";
 
@@ -51,16 +51,51 @@
 
           
         });
+
+        $("#check_bl").click(function(){
+
+            var sum=0;
+            const l_name=[];
+            const l_price=[];
+            const l_qty =[];
+            
+            $(".tr22").each(function(){
+              //console.log(sum);
+              name = ($(this).find('.fd_name').val());
+              l_name.push(name);
+              qty = ($(this).find('.quantity').val());
+              l_qty.push(qty);
+              price = ($(this).find('.price').val());
+              l_price.push(price);
+              sum = parseFloat(sum + (qty*price));
+
+            });
+            $('.sum').text(sum);
+            ConfirmPay(l_qty,l_price,l_name,sum);
+
+
+  
+            
+          });
+
+          
+
+function ConfirmPay(l_qty,l_price,l_name,sum){
+    if (confirm("Are you sure to generate bill ?")) {
+        //deletion code
+        alert(sum);
+        
+    }
+    return false;
+    }
+                
         
 
 });
 
 function refreshPage(){
-    if (confirm("Are you sure to refresh this page?")) {
-        //deletion code
+    
         window.location.reload();
-    }
-    return false;
 	}
     
 
