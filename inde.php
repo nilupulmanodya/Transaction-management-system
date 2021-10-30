@@ -229,12 +229,11 @@
           <th class="sum">0.00</th>
         </tr>
         <tr>
-          <td><button id="check_bl" type = "button" class="btn btn-primary">Pay Now</button>
+          <td>
         
-        
-          <button id="myModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#paymentModal">
-  Pay Now
-</button>  
+          <button id="check_bl" type="button" class="btn btn-primary" data-toggle="modal" data-target="#paymentModal">
+              Pay Now
+            </button>  
         
         </td>
 
@@ -242,9 +241,9 @@
 
           <td>
           <button id="myModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#refreshModel">
-  Refresh
-</button>  
-          
+            Refresh
+          </button>  
+                    
           
         </tr>
        </table>
@@ -297,32 +296,28 @@
         </button>
       </div>
       <div class="modal-body">
-        <table> 
-                
-                  <tr>
+        <table id='modeltable'> 
+          <thead>
+                <tr>
                     <th>
-                      price
+                      #
                     </th>
                     <th>
-                      price
+                      Item Name
                     </th>
                     <th>
-                      price
+                      Quantity
+                    </th>
+                    <th>
+                      price(Rs)
                     </th>
                   <tr>
-                  <tr>
-                    <td>
-                      asas
-                    </td>
-                    <td>
-                      asas
-                    </td>
-                    <td>
-                      asas
-                    </td>
-                  </tr>
-              
+                <tr>
 
+          </thead>
+              <tbody>
+              </tbody>
+                
         </table>
       </div>
       <div class="modal-footer">

@@ -6,14 +6,18 @@
           var btn_id = this.id;
           console.log(btn_id);
           
-          var markup = "<tr class='tr22'><th>"+btn_id+"</th><td><input class='fd_name' type='hidden' value='"+ name +"'>" + name + "</td><td><input class='quantity' type='number' size='2' required value='1' name='record'></td><td><input class='price' type='hidden' value="+price+">" + price + " </td>"+"<td>" +
-        "<button id="+btn_id+" type='button' onclick='productDelete(this);' class='btn delete-row btn-outline-danger'> Remove</button>" +
+          var markup = "<tr class='tr22'><th>"+btn_id+"</th><td><input class='fd_name' type='hidden' value='"+ name +"'>" + name + "</td><td><input class='quantity' onchange='cals();' type='number' size='2' required value='0' name='record'></td><td><input class='price' type='hidden' value="+price+">" + price + " </td>"+"<td>" +
+        "<button id="+btn_id+" type='button' onclick='productDelete(this); ' class='btn delete-row btn-outline-danger'> Remove</button>" +
         "</td>"+"</tr>";
 
 
 
                $(".table tbody").append(markup);
         });
+
+
+        
+
 
         $(".table input").on('change blur input', function () {
                 var row = $(this).closest('tr'),
@@ -81,14 +85,19 @@
           
 
 function ConfirmPay(l_qty,l_price,l_name,sum){
-    if (confirm("Are you sure to generate bill ?")) {
-        //deletion code
-        alert(sum);
+  var markup2;
+
+        $('#modeltable tbody').empty();
+
+        for (let i = 0; i < l_qty.length; i++) {
+          markup2 +="<tr><td>"+(i+1)+"</td><td>"+l_name[i]+"</td><td>"+l_qty[i]+"</td><td>"+l_price[i]+"</td><tr></tr>";
+          
+        } 
+        markup2+="<tr><td></td><th>Total</th><td><td><th>"+sum+"</th></tr>";
+        $("#modeltable tbody").append(markup2);
         
-    }
-    return false;
-    }
-                
+
+    }        
         
 
 });
@@ -98,6 +107,22 @@ function refreshPage(){
         window.location.reload();
 	}
     
+function cals(){ 
+    var sum=0;
+    
+    $(".tr22").each(function(){
+      //console.log(sum);
+      qty = ($(this).find('.quantity').val());
+      price = ($(this).find('.price').val());
+
+      //console.log(qty);
+      //console.log(price);
+      sum = parseFloat(sum + (qty*price));
+      
+      //alert(sum);
+    });
+    $('.sum').text(sum);
+}
 
     
   function productDelete(ctl) {
@@ -111,6 +136,7 @@ function refreshPage(){
             enableButton(btn_id);
             //console.log("delete pressed");
             //console.log(btn_id);
+            cals();
         }
 
 
