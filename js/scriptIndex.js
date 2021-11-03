@@ -4,7 +4,7 @@
           var name = btn_data[0]
           var price = btn_data[1]
           var btn_id = this.id;
-          console.log(btn_id);
+          //console.log(btn_id);
           
           var markup = "<tr class='tr22'><th>"+btn_id+"</th><td><input class='fd_name' type='hidden' value='"+ name +"'>" + name + "</td><td><input class='quantity' onchange='cals();' type='number' size='2' required value='0' name='record'></td><td><input class='price' type='hidden' value="+price+">" + price + " </td>"+"<td>" +
         "<button id="+btn_id+" type='button' onclick='productDelete(this); ' class='btn delete-row btn-outline-danger'> Remove</button>" +
@@ -79,10 +79,35 @@
 
 
   
+
+
+
+                  $("#btn_payment_confirm").click(function(){     
+                      
+                      $.ajax({
+                          type : 'POST',
+                          datatype: 'json',
+                          url : 'demo_test_post.php',
+                          data : {name : 'ssss', qty : '10'},
+                          success: function(response) {
+                              if(response == 'success') {
+                                  alert('Hours subtracted!');
+                              } else {
+                                  alert('Error!');
+                              }
+                          }}); 
+
+
+                  });
             
           });
 
+
+
           
+
+
+
 
 function ConfirmPay(l_qty,l_price,l_name,sum){
   var markup2;
@@ -97,7 +122,10 @@ function ConfirmPay(l_qty,l_price,l_name,sum){
         $("#modeltable tbody").append(markup2);
         
 
-    }        
+    }   
+    
+    
+    
         
 
 });

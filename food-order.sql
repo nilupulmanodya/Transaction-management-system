@@ -110,21 +110,17 @@ CREATE TABLE `tbl_order` (
   `qty` int(11) NOT NULL,
   `total` decimal(10,2) NOT NULL,
   `order_date` datetime NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `customer_name` varchar(150) NOT NULL,
-  `customer_contact` varchar(20) NOT NULL,
-  `customer_email` varchar(150) NOT NULL,
-  `customer_address` varchar(255) NOT NULL
+  `status` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_order`
 --
 
-INSERT INTO `tbl_order` (`id`, `food`, `price`, `qty`, `total`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`) VALUES
-(1, 'Sadeko Momo', '6.00', 3, '18.00', '2020-11-30 03:49:48', 'Cancelled', 'Bradley Farrell', '+1 (576) 504-4657', 'zuhafiq@mailinator.com', 'Duis aliqua Qui lor'),
-(2, 'Best Burger', '4.00', 4, '16.00', '2020-11-30 03:52:43', 'Delivered', 'Kelly Dillard', '+1 (908) 914-3106', 'fexekihor@mailinator.com', 'Incidunt ipsum ad d'),
-(3, 'Mixed Pizza', '10.00', 2, '20.00', '2020-11-30 04:07:17', 'Delivered', 'Jana Bush', '+1 (562) 101-2028', 'tydujy@mailinator.com', 'Minima iure ducimus');
+INSERT INTO `tbl_order` (`id`, `food`, `price`, `qty`, `total`, `order_date`, `status`) VALUES
+(1, 'Sadeko Momo', '6.00', 3, '18.00', '2020-11-30 03:49:48', 'Cancelled'),
+(2, 'Best Burger', '4.00', 4, '16.00', '2020-11-30 03:52:43', 'Delivered'),
+(3, 'Mixed Pizza', '10.00', 2, '20.00', '2020-11-30 04:07:17', 'Delivered');
 
 --
 -- Indexes for dumped tables
