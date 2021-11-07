@@ -82,23 +82,42 @@
 
 
 
-                  $("#btn_payment_confirm").click(function(){     
-                      
-                      $.ajax({
-                          type : 'POST',
-                          datatype: 'json',
-                          url : 'demo_test_post.php',
-                          data : {name : 'ssss', qty : '10'},
-                          success: function(response) {
-                              if(response == 'success') {
-                                  alert('Hours subtracted!');
-                              } else {
-                                  alert('Error!');
+                $("#btn_payment_confirm").click(function(){     
+
+                  //assigning values
+                  var sum=0;
+                  const l_name=[];
+                  const l_price=[];
+                  const l_qty =[];
+                  
+                  $(".tr22").each(function(){
+                    //console.log(sum);
+                    name = ($(this).find('.fd_name').val());
+                    l_name.push(name);
+                    qty = ($(this).find('.quantity').val());
+                    l_qty.push(qty);
+                    price = ($(this).find('.price').val());
+                    l_price.push(price);
+                    sum = parseFloat(sum + (qty*price));
+
+      
+                  });               
+                    $.ajax({            
+                        type : 'post',
+                        datatype: 'json',
+                        url : 'store_order.php',
+                        data : {l_name : l_name, l_qty :l_qty,l_price:l_price,sum: sum},
+                        success: function(response) {
+                            if(response == 'success') {
+                                alert('Hours subtracted!');
+                            } else {
+                              console.log(response);
+                                alert('Error!');
                               }
-                          }}); 
+                        }}); 
 
 
-                  });
+                });
             
           });
 

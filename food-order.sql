@@ -117,10 +117,10 @@ CREATE TABLE `tbl_order` (
 -- Dumping data for table `tbl_order`
 --
 
-INSERT INTO `tbl_order` (`id`, `food`, `price`, `qty`, `total`, `order_date`, `status`) VALUES
-(1, 'Sadeko Momo', '6.00', 3, '18.00', '2020-11-30 03:49:48', 'Cancelled'),
-(2, 'Best Burger', '4.00', 4, '16.00', '2020-11-30 03:52:43', 'Delivered'),
-(3, 'Mixed Pizza', '10.00', 2, '20.00', '2020-11-30 04:07:17', 'Delivered');
+INSERT INTO `tbl_order` (`id`, `food`, `price`, `qty`, `total`, `order_date`) VALUES
+(1, 'Sadeko Momo', '6.00', 3, '18.00', '2020-11-30 03:49:48'),
+(2, 'Best Burger', '4.00', 4, '16.00', '2020-11-30 03:52:43',),
+(3, 'Mixed Pizza', '10.00', 2, '20.00', '2020-11-30 04:07:17');
 
 --
 -- Indexes for dumped tables
