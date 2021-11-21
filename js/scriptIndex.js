@@ -108,8 +108,8 @@
                         url : 'store_order.php',
                         data : {l_name : l_name, l_qty :l_qty,l_price:l_price,sum: sum},
                         success: function(response) {
-                            if(response == 'success') {
-                                alert('Hours subtracted!');
+                            if(response == 200) {
+                                alert('Order added to DB');
                             } else {
                               console.log(response);
                                 alert('Error!');

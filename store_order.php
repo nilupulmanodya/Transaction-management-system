@@ -52,7 +52,7 @@ if(!empty($_POST['l_name']) AND !empty($_POST['l_qty']) AND !empty($_POST['l_pri
               //Create a Session Variable to Display Message
               //Redirect Page to Manage Admin
               //header("location:".SITEURL.'admin/manage-admin.php');
-              echo('insertt ok');
+              
           }
           else
           {
@@ -65,10 +65,9 @@ if(!empty($_POST['l_name']) AND !empty($_POST['l_qty']) AND !empty($_POST['l_pri
           }
   
 
-          } 
+          } echo(200);
          
 }
-echo 'success';
 
 
 
