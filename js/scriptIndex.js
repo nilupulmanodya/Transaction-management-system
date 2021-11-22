@@ -199,3 +199,18 @@ function cals(){
         //btn.innerText = 'Posting...'
     }
 
+    function view_order_details(btn_id) {
+     
+      console.log(btn_id);
+      var markup2;
+
+      $('#modeltable tbody').empty();
+
+
+      markup2="<tr><td></td><th>Total</th><td><td><th>123</th></tr>";
+      $("#modeltable tbody").append(markup2);
+      
+
+  }   
+
+    

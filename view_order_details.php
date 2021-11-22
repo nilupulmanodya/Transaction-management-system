@@ -34,21 +34,24 @@ table {
 </style>
     </head>
     <body>
-        <a href="">back</a>
+        <a href="">back to menu</a><br>
+        <a href="">back to order history</a>
         <br>
         <hr>
         <table>
             <tr>
                 <th>ID</th>
                 <th>Date Time</th>
-                <th>Amount</th>
-                <th>Details</th>
+                <th>Food</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Total</th>
                 <th>Receipt</th>
             </tr>
           <?php
 
 //Display Foods that are Active
-                $sql = "SELECT DISTINCT id, order_date, total  FROM tbl_order";
+                $sql = "SELECT * FROM tbl_order WHERE id=1636314928";
 
                 //Execute the Query
                 $res=mysqli_query($conn, $sql);
@@ -65,15 +68,20 @@ table {
                         //Get the Values
                         $id = $row['id'];
                         $order_date = $row['order_date'];
-                        $price = $row['total'];
+                        $price = $row['price'];
+                        $food = $row['food'];
+                        $qty = $row['qty'];
+                        $total = $row['total'];
                         ?>                 
                 
 
                 <tr>
                 <td><?php echo $id ?></td>
                 <td><?php echo $order_date ?></td>
+                <td><?php echo $food ?></td>
                 <td><?php echo $price ?></td>
-                <td><button onclick='view_order_details(<?php echo $id ?>);'  class="btn btn-sm btn-outline-primary" style="margin-right: 3px;" id="view_order_details" value="<?php echo $id; ?>">View</button></td>
+                <td><?php echo $qty ?></td>
+                <td><?php echo $total ?></td>
                 <td><button class="btn btn-sm btn-outline-danger" style="margin-right: 3px;" id="<?php echo $id; ?>">Print</button></td>
 
             </tr>
@@ -91,67 +99,7 @@ table {
 
 
         </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- Modal for confirm payment-->
-<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="paymentModal">Are you sure to generate bill ?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <table id='modeltable'> 
-          <thead>
-                <tr>
-                    <th>
-                      #
-                    </th>
-                    <th>
-                      Item Name
-                    </th>
-                    <th>
-                      Quantity
-                    </th>
-                    <th>
-                      price(Rs)
-                    </th>
-                  <tr>
-                <tr>
-
-          </thead>
-              <tbody>
-              </tbody>
-                
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button id='btn_payment_confirm' type="button" class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
     </body>
 </html>
-
-
+<?php
+?>
