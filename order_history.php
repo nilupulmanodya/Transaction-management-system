@@ -34,7 +34,9 @@ table {
 </style>
     </head>
     <body>
-        <a href="">back</a>
+        <h1>All Transactions</h1>
+        <a href="/">back to menu</a>
+        <a href="/order_history_today.php">view today orders</a>
         <br>
         <hr>
         <table>
@@ -107,48 +109,6 @@ table {
 
 
 
-        <!-- Modal for confirm payment-->
-<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="paymentModal">Are you sure to generate bill ?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <table id='modeltable'> 
-          <thead>
-                <tr>
-                    <th>
-                      #
-                    </th>
-                    <th>
-                      Item Name
-                    </th>
-                    <th>
-                      Quantity
-                    </th>
-                    <th>
-                      price(Rs)
-                    </th>
-                  <tr>
-                <tr>
-
-          </thead>
-              <tbody>
-              </tbody>
-                
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button id='btn_payment_confirm' type="button" class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
     </body>

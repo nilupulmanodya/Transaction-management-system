@@ -33,30 +33,24 @@ table {
 }
 </style>
     </head>
-    
-
     <body>
-    <h1>Details of Transaction id =  <?php echo $_GET['id']; ?> </h1>
-        <a href="/">back to menu</a><br>
-        <a href="order_history_today.php">order history today</a>
-        <a href="order_history.php">order history *</a>
+    <h1>Today All Transactions</h1>
+        <a href="/">back to menu</a>
+        <a href="/order_history.php">view all order history</a>
         <br>
         <hr>
         <table>
             <tr>
                 <th>ID</th>
                 <th>Date Time</th>
-                <th>Food</th>
-                <th>Price</th>
-                <th>Qty</th>
-                <th>Total</th>
-
+                <th>Amount</th>
+                <th>Details</th>
+                <th>Receipt</th>
             </tr>
           <?php
-          $id = $_GET['id']; 
-
+                $today =date('Y-m-d');
 //Display Foods that are Active
-                $sql = "SELECT * FROM tbl_order WHERE id=$id";
+                $sql = "SELECT DISTINCT id, order_date, total  FROM tbl_order WHERE order_date LIKE '$today%'";
 
                 //Execute the Query
                 $res=mysqli_query($conn, $sql);
@@ -73,21 +67,16 @@ table {
                         //Get the Values
                         $id = $row['id'];
                         $order_date = $row['order_date'];
-                        $price = $row['price'];
-                        $food = $row['food'];
-                        $qty = $row['qty'];
-                        $total = $row['total'];
+                        $price = $row['total'];
                         ?>                 
                 
 
                 <tr>
                 <td><?php echo $id ?></td>
                 <td><?php echo $order_date ?></td>
-                <td><?php echo $food ?></td>
                 <td><?php echo $price ?></td>
-                <td><?php echo $qty ?></td>
-                <td><?php echo $total ?></td>
-                
+                <td><button onclick='view_order_details(<?php echo $id ?>);'  class="btn btn-sm btn-outline-primary" style="margin-right: 3px;" id="view_order_details" value="<?php echo $id; ?>">View</button></td>
+                <td><button class="btn btn-sm btn-outline-danger" style="margin-right: 3px;" id="<?php echo $id; ?>">Print</button></td>
 
             </tr>
 <?php
@@ -104,8 +93,20 @@ table {
 
 
         </table>
-        <button class="btn btn-sm btn-outline-danger" style="margin-right: 3px;" id="<?php echo $id; ?>">Print Receipt</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </body>
 </html>
-<?php
-?>
+
+
