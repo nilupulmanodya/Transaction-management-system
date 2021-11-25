@@ -203,9 +203,6 @@ function cals(){
       //console.log(btn_id);
       location.href = "/view_order_details.php?id="+btn_id;
 
-
-      
-
-  }   
+}   
 
     

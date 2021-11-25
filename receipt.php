@@ -19,7 +19,58 @@ function Header()
 }
 }
 
+function Load_Data($food_id){
+    /*
+$id = $_GET['id']; 
 
+//Display Foods that are Active
+                $sql = "SELECT * FROM tbl_order WHERE id=$id";
+
+                //Execute the Query
+                $res=mysqli_query($conn, $sql);
+
+                //Count Rows
+                $count = mysqli_num_rows($res);
+
+                //CHeck whether the foods are availalable or not
+                if($count>0)
+                {
+                    //Foods Available
+                    while($row=mysqli_fetch_assoc($res))
+                    {
+                        //Get the Values
+                        $id = $row['id'];
+                        $order_date = $row['order_date'];
+                        $price = $row['price'];
+                        $food = $row['food'];
+                        $qty = $row['qty'];
+                        $total = $row['total'];
+                        ?>                 
+                
+
+                <tr>
+                <td><?php echo $id ?></td>
+                <td><?php echo $order_date ?></td>
+                <td><?php echo $food ?></td>
+                <td><?php echo $price ?></td>
+                <td><?php echo $qty ?></td>
+                <td><?php echo $total ?></td>
+                
+
+            </tr>
+<?php
+                    }}
+                                              
+                
+                else
+                {
+                    //Food not Available
+                    echo "<div class='error'>Food not found.</div>";
+                }
+          
+
+    */
+}
 // Instanciation of inherited class
 $pdf = new PDF();
 $pdf->AliasNbPages();
