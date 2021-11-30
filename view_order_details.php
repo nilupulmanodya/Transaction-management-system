@@ -49,7 +49,6 @@ table {
                 <th>Food</th>
                 <th>Price</th>
                 <th>Qty</th>
-                <th>Total</th>
 
             </tr>
           <?php
@@ -86,7 +85,7 @@ table {
                 <td><?php echo $food ?></td>
                 <td><?php echo $price ?></td>
                 <td><?php echo $qty ?></td>
-                <td><?php echo $total ?></td>
+
                 
 
             </tr>
@@ -101,10 +100,14 @@ table {
                 }
             ?>  
 
-
+                
+                
+                
 
         </table>
-        <button class="btn btn-sm btn-outline-danger" style="margin-right: 3px;" id="<?php echo $id; ?>">Print Receipt</button>
+        <h3>Total amount is : Rs <?php echo $total ?></h3>
+        
+        <button onclick="print_receipt(<?php echo $id; ?>);"class="btn btn-sm btn-outline-danger" style="margin-right: 3px;">Print Receipt</button>
     </body>
 </html>
 <?php

@@ -76,7 +76,7 @@ table {
                 <td><?php echo $order_date ?></td>
                 <td><?php echo $price ?></td>
                 <td><button onclick='view_order_details(<?php echo $id ?>);'  class="btn btn-sm btn-outline-primary" style="margin-right: 3px;" id="view_order_details" value="<?php echo $id; ?>">View</button></td>
-                <td><button class="btn btn-sm btn-outline-danger" style="margin-right: 3px;" id="<?php echo $id; ?>">Print</button></td>
+                <td><button class="btn btn-sm btn-outline-danger" style="margin-right: 3px;" onclick="print_receipt(<?php echo $id; ?>);">Print</button></td>
 
             </tr>
 <?php

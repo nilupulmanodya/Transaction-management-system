@@ -109,10 +109,16 @@
                         data : {l_name : l_name, l_qty :l_qty,l_price:l_price,sum: sum},
                         success: function(response) {
                             if(response == 200) {
-                                alert('Order added to DB');
-                            } else {
                               console.log(response);
-                                alert('Error!');
+                              alert('Error!');
+                                
+                                
+                            } else {
+                              
+                                alert('Order added to DB');
+                                print_receipt(response);
+                                location.href = "/";
+
                               }
                         }}); 
 
@@ -201,8 +207,13 @@ function cals(){
 
     function view_order_details(btn_id) {
       //console.log(btn_id);
-      location.href = "/view_order_details.php?id="+btn_id;
+      location.href = "/view_order_details.php?id="+btn_id;}
 
+      function print_receipt(btn_id) {
+        //console.log(btn_id);
+        //location.href = "/receipt.php?id="+btn_id;
+        window.open("/receipt.php?id="+btn_id, "_blank");
+        
 }   
 
     

@@ -61,11 +61,11 @@ if(!empty($_POST['l_name']) AND !empty($_POST['l_qty']) AND !empty($_POST['l_pri
               //Create a Session Variable to Display Message
               //Redirect Page to Add Admin
               //header("location:".SITEURL.'admin/add-admin.php');
-              echo('insert fail');
+              echo('500');
           }
   
 
-          } echo(200);
+          } echo($t_id);
          
 }
 

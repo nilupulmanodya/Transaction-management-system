@@ -1,6 +1,6 @@
 <?php
 require('fpdf.php');
-$id='1636314928';
+
 class PDF extends FPDF
 {
 // Page header
@@ -20,17 +20,18 @@ function Header()
 }
 
 function Load_Data($food_id){
-    /*
-$id = $_GET['id']; 
-
+    
+                include('config/constants.php');
 //Display Foods that are Active
-                $sql = "SELECT * FROM tbl_order WHERE id=$id";
+                $sql = "SELECT * FROM tbl_order WHERE id=$food_id";
 
                 //Execute the Query
                 $res=mysqli_query($conn, $sql);
 
                 //Count Rows
                 $count = mysqli_num_rows($res);
+                $ds = array();
+                $data_array=[];
 
                 //CHeck whether the foods are availalable or not
                 if($count>0)
@@ -45,100 +46,49 @@ $id = $_GET['id'];
                         $food = $row['food'];
                         $qty = $row['qty'];
                         $total = $row['total'];
-                        ?>                 
-                
+                        
+                        $ds = array(
+                            "id" => $id,
+                            "date"=> $order_date,
+                            "sub_total"=> $total,
+                            "description" => $food,
+                            "qty" => $qty,
+                            "unit_price" =>$price ,
+                            "unit_total"=>$price*$qty
+                        );array_push($data_array,$ds);
 
-                <tr>
-                <td><?php echo $id ?></td>
-                <td><?php echo $order_date ?></td>
-                <td><?php echo $food ?></td>
-                <td><?php echo $price ?></td>
-                <td><?php echo $qty ?></td>
-                <td><?php echo $total ?></td>
-                
-
-            </tr>
-<?php
-                    }}
+                    }
+                    
+                    //print_r($data_array);
+                }
                                               
                 
                 else
                 {
                     //Food not Available
-                    echo "<div class='error'>Food not found.</div>";
+                    return "<div class='error'>Food not found.</div>";
                 }
+                return $data_array;
           
 
-    */
+
 }
 // Instanciation of inherited class
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Times','',12);
-$data_array = array(
-    array(
-        "id" => "1636314928",
-        "date"=>"2021-11-08 00:00:00",
-        "sub_total"=>"456.00"),
-    array(
-        "description" => "Best Burger",
-        "unit_price" => "4.00",
-        "qty" => "6",
-        "unit_total"=>"45.00"),
-        array(
-            "description" => "Best Burger",
-            "unit_price" => "4.00",
-            "qty" => "6",
-            "unit_total"=>"45.00"),
-            array(
-                "description" => "Best Burger",
-                "unit_price" => "4.00",
-                "qty" => "6",
-                "unit_total"=>"45.00"),array(
-                    "description" => "Best Burger",
-                    "unit_price" => "4.00",
-                    "qty" => "6",
-                    "unit_total"=>"45.00"),array(
-                        "description" => "Best Burger",
-                        "unit_price" => "4.00",
-                        "qty" => "6",
-                        "unit_total"=>"45.00"),array(
-                            "description" => "Best Burger",
-                            "unit_price" => "4.00",
-                            "qty" => "6",
-                            "unit_total"=>"45.00"),array(
-                                "description" => "Best Burger",
-                                "unit_price" => "4.00",
-                                "qty" => "6",
-                                "unit_total"=>"45.00"),array(
-                                    "description" => "Best Burger",
-                                    "unit_price" => "4.00",
-                                    "qty" => "6",
-                                    "unit_total"=>"45.00"),array(
-                                        "description" => "Best Burger",
-                                        "unit_price" => "4.00",
-                                        "qty" => "6",
-                                        "unit_total"=>"45.00"),array(
-                                            "description" => "Best Burger",
-                                            "unit_price" => "4.00",
-                                            "qty" => "6",
-                                            "unit_total"=>"45.00"),
-    array(
-        
-        "description" => "Best Burgertest 2 ",
-        "unit_price" => "14.00",
-        "qty" => "1",
-        "unit_total"=>"55.00")
-    
-    )
-;
 
 $pdf->Line(10, 45, 210-10, 45); // 20mm from each edge
 //$pdf->Cell(40,36,'Restaurant Chill - Family Restaurant');
 $pdf->Text(10,50,'Restaurant Chill - Family Restaurant');
 $pdf->Text(10,55,'No.2B, Divulapitiya Rd, Naiwala Jn.');
 $pdf->Text(10,60,'Contact Us : 076 650 74 40 / 077 673 40 21');
+
+// Data loading from db using ID
+$fd_id =$_GET['id'];
+$data_array = Load_Data($fd_id);
+
 $pdf->Text(10,65,$data_array[0]['date']);
 
 $pdf->Ln();
@@ -155,7 +105,6 @@ $pdf->Ln();
 
 // Column headings
 $header = array('Qty', 'Order', 'Amount(Rs)');
-// Data loading
 
 $pdf->SetFont('Arial','',14);
 // $pdf->ImprovedTable($header,$data);
@@ -172,8 +121,8 @@ $pdf->Cell(30 ,6,'Unit Price',1,0,'C');
 $pdf->Cell(45 ,6,'Total',1,1,'C');/*end of line*/
 /*Heading Of the table end*/
 $pdf->SetFont('Arial','',10);
-    for ($i = 1; $i <= count($data_array)-1; $i++) {
-		$pdf->Cell(10 ,6,$i,1,0);
+    for ($i = 0; $i <= count($data_array)-1; $i++) {
+		$pdf->Cell(10 ,6,$i+1,1,0);
 		$pdf->Cell(80 ,6,$data_array[$i]['description'],1,0);
 		$pdf->Cell(23 ,6,$data_array[$i]['qty'],1,0,'R');
 		$pdf->Cell(30 ,6,$data_array[$i]['unit_price'],1,0,'R');

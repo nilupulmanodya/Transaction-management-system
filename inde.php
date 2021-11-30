@@ -58,12 +58,15 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Order History</a>
+            <a class="nav-link" href="order_history_today.php">Today Transactions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="order_history.php">Order History</a>
           </li>
         </ul>
         <span class="navbar-text">
           
-          <a class="nav-link" href="/admin.php">Login as Admin</a>
+          <a class="nav-link" href="/admin/">Login as Admin</a>
         </span>
       </div>
     </div>
@@ -198,11 +201,7 @@
   <div class="column right" style="background-color:#bbb;">
     <h3 style="text-align: center;">Cart</h3>
     <form>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Reference Note</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">Only admin can see this.</div>
-      </div>
+      
 
       <table class="table">
         <thead>
