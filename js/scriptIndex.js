@@ -148,6 +148,7 @@ function ConfirmPay(l_qty,l_price,l_name,sum){
         
 
     }   
+     
     
     
     
@@ -194,14 +195,19 @@ function cals(){
 
 
   function disableButton(btn_id) {
-        var btn = document.getElementById(btn_id);
-        btn.disabled = true;
+        var btn = document.getElementsByClassName(btn_id);
+        for(var i = 0; i < btn.length; i++) {
+          //console.log(btn[i]);
+          btn[i].disabled = true;}
+        //btn.disabled = true;
         //btn.innerText = 'Posting...'
     }
 
     function enableButton(btn_id) {
-        var btn = document.getElementById(btn_id);
-        btn.disabled = false;
+        var btn = document.getElementsByClassName(btn_id);
+        for(var i = 0; i < btn.length; i++) {
+          //console.log(btn[i]);
+          btn[i].disabled = false;}
         //btn.innerText = 'Posting...'
     }
 
@@ -215,5 +221,6 @@ function cals(){
         window.open("/receipt.php?id="+btn_id, "_blank");
         
 }   
+
 
     
